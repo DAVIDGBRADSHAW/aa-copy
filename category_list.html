@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> this overides the main header message</title>
+</head>
+<body>
+	{% extends 'base.html'%}
+
+	{%block content%} Blog Categories {%endblock%}
+	{%block content%}
+
+	<h1>{{post.title}}</h1>
+	<h1> BLOG CAtegories</h1>
+	<br>
+	<h1><a class="dropdown-item" href=""</h1>
+	<h1><a class="dropdown-item" href="	{% url 'category' item|slugify%}">{{item}}</a></h1>
+	{% endblock%}
+</body>
+</html>

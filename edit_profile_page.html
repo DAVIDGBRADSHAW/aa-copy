@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>edit PROFILE PAGE</title>
+</head>
+<body>
+	{% extends 'base.html'%}
+	{%block title%} edit  TO UR PROFILE PAGE{%endblock%}
+	{%block content%}
+	
+	{% if user.is_authenticated %}
+			{% if user.id == profile.user.id%}
+
+	<h1>....ST</h1>
+<br>
+<br>
+<h1> add post but this JS IN THE HTML on popose</h1>
+	<div class="form-group">
+	<form method="POST" enctype="multipart/ multipart/form-data">
+			{% csrf_token %}
+
+			{{ form.as_p}}
+			<button type="button" class="btn btn-secondary"> UPDATE PROFILE </button>
+</div>
+		{% else %}
+ 			 English goes un here...........
+		{% endif %}
+
+{% endif %}
+
+{% endblock %}

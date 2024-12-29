@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	{% extends 'base.html'%}
+
+	{%block content%}
+
+	<h1> post</h1>
+	{%  for post in object_list%}
+<ul>
+	
+	{% for post in object_list%}
+	<li><a href="{%  url 'article-detail' post.pk%}">{{post.title}}</a> 
+		-
+		-<a href="{%  url 'category' post.category|slugify%}">{{post.category}}</a>
+		-{{post.first_name}}
+		-{{post.last_name}}
+		-{{post.post_date}}<small>
+		{%  if user.is_authenticated %}
+			{%  if user.id == post.author.id %}
+		
+				- <a href="{% 'delete_post' post.pk%}">DELETE</a> <br>
+					<a href="{% 'update_post' post.pk%}">Edit</a> <br>
+		{%  endif%}
+	{%  endif%}	
+	</small><br>
+	{{ post.snippet}}
+	{{post.body|slice:":200"|safe}}</li>
+
+{% endfor%}
+</ul>
+
+{% endblock%}
+</body>
+</html>

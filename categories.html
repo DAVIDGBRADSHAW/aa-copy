@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>categories</title>
+</head>
+<body>
+	{% extends 'base.html'%}
+	{%block content%}
+
+
+	{%   if category_posts%}
+
+
+	<h1>{{cats}} CATEGORY</h1>
+	{%  for post in category_posts%}
+	<a href="{%  url 'article-detail' post.pk%}">{{post.title}}</a> 
+		-
+		-{{post.first_name}}
+		-{{post.last_name}}
+		-{{post.post_date}}<small>
+		{%  if user.is_authenticated %}
+			<a href="{% 'delete_post' post.pk%}">DELETE</a> <br>
+			<a href="{% 'update_post' post.pk%}">Edit</a> <br>
+		{%  endif%}
+	</small><br>
+	{{post.body|slice:":200"|safe}}
+
+{% endfor%}
+</ul>
+{%  for post in category_posts%}
+{%  else %}
+<h1> this page does not, if u wishit to be added then in touch on 086 xx xx xxx</h1>
+{% endif%}
+
+{% endblock%}
+
+
+
+</body>
+</html>

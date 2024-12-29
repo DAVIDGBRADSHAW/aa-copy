@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>WELCOME - Login here</title>
+</head>
+<body>
+	{% extends 'base.html'%}
+	{%block title%} login{%endblock%}
+	{%block content%}
+	<h1>login</h1>
+	<br>
+	<br>
+	<div class="form-group">
+		<form method="POST">
+			{% csrf_token%}
+				<div class="mb-3">
+					<label for="exampleInputEmail1" class="form-label">Username</label>
+					<input type="text" class="form-control" name="username" placeholder="input ur username">
+					<br>
+					<br>
+					<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+				</div>
+				<br>
+				<br>
+			<div class="form-control">
+				<div class="mb-3">
+					<label for="exampleInputPassword1" class="form-label">Password</label>
+					<input type="password" class="form-control" name="password" placeholder="and ur password">
+				</div>
+				<br>
+				<br>
+				<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+<br>
+<br>
+ english <a href="{% url 'register'%}"> register</a>
+<br>
+<br>
+			<button class="btn btn-secondary">
+<small id="emailHelp" class="form-control text-muted">  U NEED TO JOIN BEFORE U LOG IN</small></button>
+
+
+
+
+
+		</form>
+	</div>
+	</body>
+	</html>
